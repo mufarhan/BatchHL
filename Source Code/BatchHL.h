@@ -1,20 +1,13 @@
 #ifndef HGHWAY_LABELING_H_
 #define HGHWAY_LABELING_H_
 
-#include <stdint.h>
 #include <sys/time.h>
-#include <cstdlib>
-#include <cmath>
 #include <iostream>
 #include <thread>
 #include <string>
 #include <vector>
-#include <set>
-#include <unordered_set>
-#include <math.h>
 #include <queue>
 #include <map>
-#include <unordered_map>
 #include <algorithm>
 #include <fstream>
 
