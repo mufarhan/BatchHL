@@ -1,13 +1,20 @@
 #ifndef HGHWAY_LABELING_H_
 #define HGHWAY_LABELING_H_
 
+//#include <stdint.h>
 #include <sys/time.h>
+//#include <cstdlib>
+//#include <cmath>
 #include <iostream>
 #include <thread>
 #include <string>
 #include <vector>
+//#include <set>
+//#include <unordered_set>
+//#include <math.h>
 #include <queue>
 #include <map>
+//#include <unordered_map>
 #include <algorithm>
 #include <fstream>
 
@@ -33,6 +40,8 @@ public:
   void BHL(std::vector<std::pair<std::string, std::pair<int, int> > > updates);
   void BHL_Parallel(int i, std::vector<std::pair<std::string, std::pair<int, int> > > updates);
   bool prunable(int i, int u, uint8_t *temp, uint8_t *A);
+
+  void deallocate();
 
   void SelectLandmarks_HD(int topk[]);
   int LabellingSize();
@@ -87,7 +96,10 @@ private:
 
 HighwayLabelling::HighwayLabelling() { }
 
-HighwayLabelling::~HighwayLabelling() {
+HighwayLabelling::~HighwayLabelling() { }
+
+void HighwayLabelling::deallocate() {
+
   for(int i = 0; i < V; i++) {
     delete [] distances[i];
     delete [] distances_1[i];
@@ -1082,10 +1094,22 @@ void HighwayLabelling::storeLabelling(std::string filename) {
 
 void HighwayLabelling::PrintLabelingStatistics(std::string s) {
   std::cout << s << time_ << " Labelling Size: " << LabellingSize() << " MB" << std::endl;
+  deallocate();
 }
 
 void HighwayLabelling::PrintQueryStatistics() {
   std::cout << "Average Query Time (ms) : " << (double) time_querying_millisec_ / 100000 << std::endl;
+  for(int i = 0; i < V; i++) {
+    delete [] distances[i];
+    delete [] vertices[i];
+  }
+  delete [] distances;
+  delete [] vertices;
+  delete [] C;
+
+  for(int i = 0; i < K; i++)
+    delete [] highway[i];
+  delete [] highway;
 }
 
 #endif  // PRUNED_LANDMARK_LABELING_H_
