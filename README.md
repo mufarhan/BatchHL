@@ -41,13 +41,13 @@ Example:<br/>
 
 #4 - Perform distance queries<br/>
 ./run query-dis @1 @2 @3 @4 @5<br/>
-@1: name of the dataset
-@2: number of landmarks
-@3: file to load the labelling from
-@4: file containing query pairs
-@5: file to write query results
+@1: name of the dataset<br/>
+@2: number of landmarks<br/>
+@3: file to load the labelling from<br/>
+@4: file containing query pairs<br/>
+@5: file to write query results<br/>
 
-Example:
+Example:<br/>
 ./index query_labelling skitter.txt 20 skitter query_pairs.txt results.txt
 
 
