@@ -1,15 +1,17 @@
 # batchHL
+
 This is the implementation of the paper "BatchHL-Answering Distance Queries on Batch-Dynamic Networks at scale", currently under review in SIGMOD. 
 
 The format of the dataset text file is: 
-vertex_u deg_u v_1 ... vn, where v_1 to v_n are neighbors of vertex u. Note that the vertex id's are from 0 to (V-1), where V is the number of vertices. There are no self loops in the graph, i.e., no edge from any vertex to itself. 
+vertex_u deg_u v1 ... vn, where v1 to vn are neighbors of u. Note that the vertex id are from 0 to (V-1), where V is the number of vertices. There are no self loops in the graph, i.e., no edge from any vertex to itself. 
 
 To see the accepted format for datasets, batch updates and query pairs, you may refer to the Sample folder. After the test inputs are ready, please us the following commands to test BatchHL.
 
 =====================================
 
 1 - Compile source files using the following command:
-g++ -O3 -std=c++11 -pthread construct_labelling_main.cpp -o run
+g++ -O3 -std=c++11 -pthread BatchHL.cpp -o run
+
 =====================================
 
 2 - Construct Labelling:
@@ -34,6 +36,7 @@ Example:
 
 Example:
 ./index update_labelling skitter.txt 20 skitter batch.txt 0 0
+
 =====================================
 
 4 - Perform distance queries
@@ -46,3 +49,12 @@ Example:
 
 Example:
 ./index query_labelling skitter.txt 20 skitter query_pairs.txt results.txt
+
+
+
+
+
+
+
+
+
