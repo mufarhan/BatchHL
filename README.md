@@ -9,18 +9,18 @@ To see the accepted format for datasets, batch updates and query pairs, you may 
 
 =====================================
 
-#1 - Compile source files using the following command:
+#1 - Compile source files using the following command:<br/>
 g++ -O3 -std=c++11 -pthread BatchHL.cpp -o run
 
 =====================================
 
-#2 - Construct Labelling:
-./run update_labelling @1 @2 @3
-@1: name of the dataset
-@2: number of landmarks
+#2 - Construct Labelling:<br/>
+./run update_labelling @1 @2 @3<br/>
+@1: name of the dataset<br/>
+@2: number of landmarks<br/>
 @3: file to store labelling
 
-Example:
+Example:<br/>
 ./index construct_labelling skitter.txt 20 skitter
 
 =====================================
