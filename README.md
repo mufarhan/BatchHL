@@ -1,4 +1,4 @@
-# batchHL
+# BatchHL
 
 This is the implementation of the paper "BatchHL-Answering Distance Queries on Batch-Dynamic Networks at scale", currently under review in SIGMOD. 
 
