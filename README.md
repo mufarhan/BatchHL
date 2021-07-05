@@ -25,16 +25,16 @@ Example:<br/>
 
 =====================================
 
-#3 - Update Labelling:
-./run update_labelling @1 @2 @3 @4 @5 @6
-@1: name of the dataset
-@2: number of landmarks
-@3: file to load the labelling from
-@4: batch file containing updates
-@5: method parameter (0 to run BHL+ or 1 to run BHL)
+#3 - Update Labelling:<br/>
+./run update_labelling @1 @2 @3 @4 @5 @6<br/>
+@1: name of the dataset<br/>
+@2: number of landmarks<br/>
+@3: file to load the labelling from<br/>
+@4: batch file containing updates<br/>
+@5: method parameter (0 to run BHL+ or 1 to run BHL)<br/>
 @6: parallelism parameter (0/1)
 
-Example:
+Example:<br/>
 ./index update_labelling skitter.txt 20 skitter batch.txt 0 0
 
 =====================================
