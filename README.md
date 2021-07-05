@@ -9,12 +9,12 @@ To see the accepted format for datasets, batch updates and query pairs, you may 
 
 =====================================
 
-1 - Compile source files using the following command: \\
+#1 - Compile source files using the following command:
 g++ -O3 -std=c++11 -pthread BatchHL.cpp -o run
 
 =====================================
 
-2 - Construct Labelling:
+#2 - Construct Labelling:
 ./run update_labelling @1 @2 @3
 @1: name of the dataset
 @2: number of landmarks
@@ -25,7 +25,7 @@ Example:
 
 =====================================
 
-3 - Update Labelling:
+#3 - Update Labelling:
 ./run update_labelling @1 @2 @3 @4 @5 @6
 @1: name of the dataset
 @2: number of landmarks
@@ -39,7 +39,7 @@ Example:
 
 =====================================
 
-4 - Perform distance queries
+#4 - Perform distance queries
 ./run query-dis @1 @2 @3 @4 @5
 @1: name of the dataset
 @2: number of landmarks
