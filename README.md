@@ -32,15 +32,15 @@ Example:<br/>
 @3: file to load the labelling from<br/>
 @4: batch file containing updates<br/>
 @5: method parameter (0 to run BHL+ or 1 to run BHL)<br/>
-@6: parallelism parameter (0/1)
+@6: parallelism parameter (0 to parallelize, otherwise 1)
 
 Example:<br/>
 ./index update_labelling skitter.txt 20 skitter batch.txt 0 0
 
 =====================================
 
-#4 - Perform distance queries
-./run query-dis @1 @2 @3 @4 @5
+#4 - Perform distance queries<br/>
+./run query-dis @1 @2 @3 @4 @5<br/>
 @1: name of the dataset
 @2: number of landmarks
 @3: file to load the labelling from
