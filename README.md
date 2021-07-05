@@ -9,7 +9,7 @@ To see the accepted format for datasets, batch updates and query pairs, you may 
 
 =====================================
 
-1 - Compile source files using the following command:
+1 - Compile source files using the following command: \\
 g++ -O3 -std=c++11 -pthread BatchHL.cpp -o run
 
 =====================================
