@@ -3,7 +3,7 @@
 <!-- This is the implementation of the paper "BatchHL-Answering Distance Queries on Batch-Dynamic Networks at scale", currently under review in SIGMOD. -->
 
 The format of the dataset text file is as follows: 
-Line 1 : |V| |E|
+Line 1 : |V| |E|<br/>
 Line 2 : vertex_u deg_u v1 ... vn, where v1 to vn are neighbors of u. Note that the vertex id are from 0 to (V-1), where V is the number of vertices. There are no self loops in the graph, i.e., no edge from any vertex to itself. 
 
 To see the accepted format for datasets, batch updates and query pairs, you may refer to the Sample folder. After the test inputs are ready, please us the following commands to test BatchHL.
