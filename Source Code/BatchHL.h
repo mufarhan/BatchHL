@@ -1,13 +1,20 @@
 #ifndef HGHWAY_LABELING_H_
 #define HGHWAY_LABELING_H_
 
+//#include <stdint.h>
 #include <sys/time.h>
+//#include <cstdlib>
+//#include <cmath>
 #include <iostream>
 #include <thread>
 #include <string>
 #include <vector>
+//#include <set>
+//#include <unordered_set>
+//#include <math.h>
 #include <queue>
 #include <map>
+//#include <unordered_map>
 #include <algorithm>
 #include <fstream>
 
@@ -46,8 +53,8 @@ public:
   void QueryDistance(std::string pairs, std::string output);
 
   void storeLabelling(std::string filename);
-  void loadLabelling(std::string filename, int topk[]);
-  void loadLabellingToQuery(std::string filename);
+  void loadLabelling_Full(std::string filename, int topk[]);
+  void loadLabelling_Pruned(std::string filename);
 
   void PrintLabelingStatistics(std::string s);
   void PrintQueryStatistics();
@@ -216,11 +223,11 @@ void HighwayLabelling::BuildIndex(int topk[]) {
 
   // Start computing Highway Labelling (HL)
   time_ = -GetCurrentTimeSec();
-
   for (int i = 0; i < K; i++)
     ConstructHighwayLabelling(i, topk);
-
   time_ += GetCurrentTimeSec();
+
+  std::cout << "Construction Time (sec.): " << time_ << " Labelling Size: " << LabellingSize() << " MB" << std::endl;
 }
 
 void HighwayLabelling::UpdateLabelling(std::string filename, int m, int p) {
@@ -262,6 +269,7 @@ void HighwayLabelling::UpdateLabelling(std::string filename, int m, int p) {
     }
   }
   time_ += GetCurrentTimeSec();
+  std::cout << "Batch Update Time (sec.): " << time_ << " Updated Labelling Size: " << LabellingSize() << " MB" << std::endl;
 
   for(a = 0; a < V; a++) {
     for(b = 0; b < K; b++)
@@ -987,9 +995,22 @@ void HighwayLabelling::QueryDistance(std::string pairs, std::string output) {
   ofs.close();
 
   std::cout << "Average Query Time (ms) : " << (double) time_querying_millisec_ / total << std::endl;
+
+  /** freeing memory **/
+  for(int i = 0; i < V; i++) {
+    delete [] distances[i];
+    delete [] vertices[i];
+  }
+  delete [] distances;
+  delete [] vertices;
+  delete [] C;
+
+  for(int i = 0; i < K; i++)
+    delete [] highway[i];
+  delete [] highway;
 }
 
-void HighwayLabelling::loadLabelling(std::string filename, int topk[]) {
+void HighwayLabelling::loadLabelling_Full(std::string filename, int topk[]) {
 
   for(int i = 0; i < K; i++)
     landmarks[topk[i]] = i;
@@ -1028,7 +1049,7 @@ void HighwayLabelling::loadLabelling(std::string filename, int topk[]) {
   ifs.close();
 }
 
-void HighwayLabelling::loadLabellingToQuery(std::string filename) {
+void HighwayLabelling::loadLabelling_Pruned(std::string filename) {
   std::ifstream ifs(std::string(filename) + std::string("_index"));
 
   C = new uint8_t[V];
@@ -1084,25 +1105,4 @@ void HighwayLabelling::storeLabelling(std::string filename) {
   }
   ofs.close();
 }
-
-void HighwayLabelling::PrintLabelingStatistics(std::string s) {
-  std::cout << s << time_ << " Labelling Size: " << LabellingSize() << " MB" << std::endl;
-  deallocate();
-}
-
-void HighwayLabelling::PrintQueryStatistics() {
-  std::cout << "Average Query Time (ms) : " << (double) time_querying_millisec_ / 100000 << std::endl;
-  for(int i = 0; i < V; i++) {
-    delete [] distances[i];
-    delete [] vertices[i];
-  }
-  delete [] distances;
-  delete [] vertices;
-  delete [] C;
-
-  for(int i = 0; i < K; i++)
-    delete [] highway[i];
-  delete [] highway;
-}
-
 #endif  // PRUNED_LANDMARK_LABELING_H_

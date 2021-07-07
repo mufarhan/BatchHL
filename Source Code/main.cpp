@@ -1,5 +1,5 @@
 #include <iostream>
-#include "highway_cover_labelling.h"
+#include "BatchHL.h"
 
 using namespace std;
 
