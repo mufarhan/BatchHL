@@ -16,7 +16,7 @@ g++ -O3 -std=c++11 -pthread main.cpp -o run
 =====================================
 
 #2 - Construct Labelling:<br/>
-./run update_labelling @1 @2 @3<br/>
+./run construct_labelling @1 @2 @3<br/>
 @1: name of the dataset<br/>
 @2: number of landmarks<br/>
 @3: file to store labelling
