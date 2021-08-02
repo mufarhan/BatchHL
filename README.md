@@ -22,7 +22,7 @@ g++ -O3 -std=c++11 -pthread main.cpp -o run
 @3: file to store labelling
 
 Example:<br/>
-./index construct_labelling graph.txt 20 graph_labelling
+./run construct_labelling graph.txt 20 graph_labelling
 
 =====================================
 
@@ -36,7 +36,7 @@ Example:<br/>
 @6: parallelism parameter (0 to parallelize, otherwise 1)
 
 Example:<br/>
-./index update_labelling graph.txt 20 graph_labelling batch.txt 0 0
+./run update_labelling graph.txt 20 graph_labelling batch.txt 0 0
 
 =====================================
 
@@ -49,7 +49,7 @@ Example:<br/>
 @5: file to write query results<br/>
 
 Example:<br/>
-./index query_labelling graph.txt 20 graph_labelling query_pairs.txt query_results.txt
+./run query_labelling graph.txt 20 graph_labelling query_pairs.txt query_results.txt
 
 
 
