@@ -33,10 +33,9 @@ Example:<br/>
 @3: file to load the labelling from<br/>
 @4: batch file containing updates<br/>
 @5: method parameter (0 to run BHL+ or 1 to run BHL)<br/>
-@6: parallelism parameter (0 to parallelize, otherwise 1)
 
 Example:<br/>
-./run update_labelling graph.txt 20 graph_labelling batch.txt 0 0
+./run update_labelling graph.txt 20 graph_labelling batch.txt 0
 
 =====================================
 
