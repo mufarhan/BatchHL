@@ -51,6 +51,6 @@ Example:<br/>
 ./run query_labelling graph.txt 20 graph_labelling query_pairs.txt query_results.txt
 
 # References
-* Muhammad Farhan, Qing Wang, and Henning Koehler, **[BatchHL: Answering Distance Queries on Batch-Dynamic Networks at Scale](https://dl.acm.org/doi/abs/10.1145/3514221.3517883)**. SIGMOD 2022.
+* Muhammad Farhan, Qing Wang and Henning Koehler, **[BatchHL: Answering Distance Queries on Batch-Dynamic Networks at Scale](https://dl.acm.org/doi/abs/10.1145/3514221.3517883)**. SIGMOD 2022.
 
 
