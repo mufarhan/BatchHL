@@ -24,12 +24,13 @@ int main(int argc, char **argv) {
       hl.loadLabelling_Full(argv[4], topk); //loading labelling from disk
 
       cout << "Updating Highway Cover Labelling..." << std::endl;
-      hl.UpdateLabelling(argv[5], atoi(argv[6]), atoi(argv[7]));
+      hl.UpdateLabelling(argv[5], atoi(argv[6]));
       hl.storeLabelling(argv[4]); //storing labelling to disk after update
       hl.deallocate();
     } else if (string(argv[1]).compare("query_labelling") == 0) {
       hl.loadLabelling_Pruned(argv[4]); //loading labelling from disk
 
+      cout << "Querying Highway Cover Labelling..." << std::endl;
       hl.RemoveLandmarks(topk);
       hl.QueryDistance(argv[5], argv[6]);
     }
