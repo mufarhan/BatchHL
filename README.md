@@ -11,7 +11,7 @@ To see the accepted format for datasets, batch updates and query pairs, you may 
 =====================================
 
 #1 - Compile source files using the following command:<br/>
-g++ -O3 -std=c++11 -pthread main.cpp -o run
+g++ -O3 -std=c++11 main.cpp -o run
 
 =====================================
 
