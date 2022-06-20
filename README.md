@@ -1,6 +1,6 @@
 # BatchHL
 
-<!-- This is the implementation of the paper "BatchHL-Answering Distance Queries on Batch-Dynamic Networks at scale", currently under review in SIGMOD. -->
+This is the implementation of the paper "BatchHL: Answering Distance Queries on Batch-Dynamic Networks at scale".
 
 The format of the dataset text file is as follows: <br/>
 Line 1 : |V| |E| <br/>
