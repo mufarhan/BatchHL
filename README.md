@@ -1,6 +1,6 @@
 # BatchHL
 
-This is the implementation of the paper "BatchHL: Answering Distance Queries on Batch-Dynamic Networks at scale".
+This is an implementation of BatchHL method which can reflect graph changes in batches and answer shortest-path distance queries over large complex networks in the order of milliseconds(ms).
 
 The format of the dataset text file is as follows: <br/>
 Line 1 : |V| |E| <br/>
