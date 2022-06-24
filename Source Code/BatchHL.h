@@ -812,4 +812,4 @@ void HighwayLabelling::storeLabelling(std::string filename) {
   }
   ofs.close();
 }
-#endif  // PRUNED_LANDMARK_LABELING_H_
+#endif  // HGHWAY_LABELING_H_
