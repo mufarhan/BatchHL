@@ -54,9 +54,6 @@ public:
   void loadLabelling_Full(std::string filename, int topk[]);
   void loadLabelling_Pruned(std::string filename);
 
-  void PrintLabelingStatistics(std::string s);
-  void PrintQueryStatistics();
-
 private:
   int V;  // total number of vertices
   long E; // total number of edges
@@ -81,8 +78,7 @@ private:
   }
 
   // Statistics
-  double time_, time_querying_sec_;
-  long time_querying_microsec_, time_querying_millisec_;
+  double time_, time_querying_sec_, time_querying_millisec_;
 };
 
 HighwayLabelling::HighwayLabelling() { }
