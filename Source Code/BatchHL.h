@@ -443,15 +443,9 @@ void HighwayLabelling::BHL(std::vector<std::pair<std::string, std::pair<int, int
       temp[iter.second.second] = query(i, iter.second.second);
 
       if(temp[iter.second.first] > temp[iter.second.second]) {
-        if(iter.first == "EI")
-          que.push(std::make_pair(temp[iter.second.second] + 1, iter.second.first));
-        else if(iter.first == "ED")
-          que.push(std::make_pair(temp[iter.second.first], iter.second.first));
+        que.push(std::make_pair(temp[iter.second.second] + 1, iter.second.first));
       } else if(temp[iter.second.first] < temp[iter.second.second]) {
-        if(iter.first == "EI")
-          que.push(std::make_pair(temp[iter.second.first] + 1, iter.second.second));
-        else if(iter.first == "ED")
-          que.push(std::make_pair(temp[iter.second.second], iter.second.second));
+        que.push(std::make_pair(temp[iter.second.first] + 1, iter.second.second));
       }
     }
 
