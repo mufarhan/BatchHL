@@ -13,7 +13,7 @@
 #include "two_layer_queue.h"
 
 //
-// NOTE: Currently only unweighted and undirected graphs are supported.
+// Implementation for unweighted and undirected graphs.
 //
 
 class HighwayLabelling {
@@ -43,7 +43,6 @@ public:
 
   void SelectLandmarks_HD(int topk[]);
   long LabellingSize();
-  void PrintLabeling();
 
   uint8_t min(uint8_t a, uint8_t b);
   void RemoveLandmarks(int topk[]);
@@ -161,18 +160,6 @@ long HighwayLabelling::LabellingSize() {
   }
   
   return (V + 2 *size) / (1024 * 1024);
-}
-
-void HighwayLabelling::PrintLabeling() {
-
-  for (int i = 0; i < V; i++) {
-    std::cout << i << " -> ";
-    for (int j = 0; j < K; j++) {
-      if(distances_1[i][j] != 111)
-        std::cout<< "(" << j << ", " << (int) distances_1[i][j] << ") ";
-    }
-    std::cout<<std::endl;
-  }
 }
 
 void HighwayLabelling::ConstructHighwayLabelling(int i, int topk[]) {
