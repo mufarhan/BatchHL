@@ -9,6 +9,7 @@
 #include <map>
 #include <unordered_map>
 #include <algorithm>
+#include <sstream>
 #include <fstream>
 
 #include "two_layer_queue.h"
@@ -139,8 +140,8 @@ HighwayLabelling::HighwayLabelling(std::string filename, int k) {
       std::istringstream iss(query);
       iss >> v >> w;
       
-      if (vertex2id.count(v) == 0) { vertex2id[v] = V++; adj.push_back(vector<pair<int, int> >()); }
-      if (vertex2id.count(w) == 0) { vertex2id[w] = V++; adj.push_back(vector<pair<int, int> >()); }
+      if (vertex2id.count(v) == 0) { vertex2id[v] = V++; adj.push_back(std::vector<int>()); }
+      if (vertex2id.count(w) == 0) { vertex2id[w] = V++; adj.push_back(std::vector<int>()); }
       v = vertex2id[v];
       w = vertex2id[w];
       if (v != w) {
