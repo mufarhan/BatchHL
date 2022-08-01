@@ -127,7 +127,7 @@ void HighwayLabelling::deallocate() {
 }
 
 HighwayLabelling::HighwayLabelling(std::string filename, int k) {
-  K = k; V = 0; E = 0; srand (time(NULL));
+  K = k; V = 0; E = 0;
 
   std::ifstream ifs(filename);
   if (ifs.is_open()) {
