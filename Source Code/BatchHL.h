@@ -42,7 +42,7 @@ public:
   void deallocate();
 
   void SelectLandmarks_HD(int topk[]);
-  long LabellingSize();
+  int LabellingSize();
 
   uint8_t min(uint8_t a, uint8_t b);
   void RemoveLandmarks(int topk[]);
@@ -127,30 +127,42 @@ void HighwayLabelling::deallocate() {
 }
 
 HighwayLabelling::HighwayLabelling(std::string filename, int k) {
-  K = k; V = 0; E = 0;
+  V = 0; E = 0; K = k;
 
   std::ifstream ifs(filename);
   if (ifs.is_open()) {
-    ifs >> V >> E;
 
-    adj.reserve(V);
-
-    int v, w, deg;
-    while (ifs >> v >> deg) {
-      adj[v].reserve(deg);
-      for (int i = 0; i < deg; i++) {
-        ifs >> w;
+    int v, w; std::string query;
+    std::unordered_map<int, int> vertex2id;
+    while (getline(ifs, query)){
+      std::istringstream iss(query);
+      iss >> v >> w;
+      
+      if (vertex2id.count(v) == 0) { vertex2id[v] = V++; adj.push_back(vector<pair<int, int> >()); }
+      if (vertex2id.count(w) == 0) { vertex2id[w] = V++; adj.push_back(vector<pair<int, int> >()); }
+      v = vertex2id[v];
+      w = vertex2id[w];
+      if (v != w) {
         adj[v].push_back(w);
+        adj[w].push_back(v);
       }
     }
     ifs.close();
 
+    for (int v = 0; v < V; v++) {
+      std::sort(adj[v].begin(), adj[v].end());
+      adj[v].erase(std::unique(adj[v].begin(), adj[v].end()), adj[v].end());
+    }
+
+    for(int i = 0; i < V; i++)
+      E += adj[i].size();
     std::cout << "V : " << V << " E : " << E << std::endl << std::endl;
+
   } else
       std::cout << "Unable to open file" << std::endl;
 }
 
-long HighwayLabelling::LabellingSize() {
+int HighwayLabelling::LabellingSize() {
   long size = 0;
   for (int i = 0; i < V; i++) {
     for (int j = 0; j < K; j++) {
