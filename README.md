@@ -23,7 +23,7 @@ Example:<br/>
 =====================================
 
 #3 - Update Labelling:<br/>
-./run update_labelling @1 @2 @3 @4 @5 @6<br/>
+./run update_labelling @1 @2 @3 @4 @5<br/>
 @1: name of the dataset<br/>
 @2: number of landmarks<br/>
 @3: file to load the labelling from<br/>
