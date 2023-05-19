@@ -1,4 +1,4 @@
-# BatchHL
+# BatchHL (Batch-Dynamic Distance Labelling)
 
 This is an implementation of BatchHL method which can reflect graph changes in batches to answer shortest-path distance queries efficiently over very large batch-dynamic networks.
 
